@@ -1,0 +1,46 @@
+String output1 = "";
+		String output2 = "";
+		String output3 = "";
+		String s1[] =new String[]{input1,input2,input3};
+		for(int i=0;i<3;i++)
+		{
+			String out1 = "";
+			String out2 = "";
+			String out3 = "";
+			if(s1[i].length()%3==0)
+			{
+				out1 = s1[i].substring(0,s1[i].length()/3);
+				out2 = s1[i].substring(s1[i].length()/3,s1[i].length()-out1.length());
+				out3 = s1[i].substring(s1[i].length()-out1.length(),s1[i].length());
+			}
+			else if(s1[i].length()%3==1)
+			{
+				out1 = s1[i].substring(0,(s1[i].length()/3));
+				out2 = s1[i].substring(s1[i].length()/3,s1[i].length()-out1.length());
+				out3 = s1[i].substring(s1[i].length()-out1.length(),s1[i].length());
+			}
+			else 
+			{
+				out1 = s1[i].substring(0,(s1[i].length()/3)+1);
+				out2 = s1[i].substring((s1[i].length()/3)+1,s1[i].length()-out1.length());
+				out3 = s1[i].substring(s1[i].length()-out1.length(),s1[i].length());
+			}
+			output1 += out1;
+			output2 += out2;
+			output3 += out3;
+		}
+		String ans = "";
+        for(int i = 0;i<output3.length();i++)
+		{
+			if(Character.isUpperCase(output3.charAt(i)))
+			{
+				ans += Character.toLowerCase(output3.charAt(i));
+			}
+			else
+			{
+				ans += Character.toUpperCase(output3.charAt(i));
+			}
+		}
+		return new Result(output1,output2,ans);
+    }
+}
